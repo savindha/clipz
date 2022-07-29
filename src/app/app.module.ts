@@ -5,28 +5,33 @@ import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import {AngularFireModule} from '@angular/fire/compat';
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { VideoModule } from './video/video.module';
+import { ClipComponent } from './clip/clip.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ClipComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     UserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule, 
-    AngularFirestoreModule
-    
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    VideoModule, AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
