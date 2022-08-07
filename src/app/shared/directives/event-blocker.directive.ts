@@ -13,6 +13,4 @@ export class EventBlockerDirective {
     event?.preventDefault()
   }
 
-
-
 }
