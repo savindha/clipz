@@ -13,6 +13,11 @@ export class UploadComponent implements OnInit {
   isDragover = false
   file: File | null = null
   nextStep = false
+  showAlert = false
+  alertColor = 'blue'
+  alertMsg = 'Please wait! Your clip is being uploaded.'
+  inSubmission = false
+  percentage = 0
 
   title = new FormControl('', {
     validators: [Validators.required,
@@ -44,11 +49,19 @@ export class UploadComponent implements OnInit {
   }
 
   async uploadFile() {
+
+    this.showAlert = true
+    this.alertColor = 'blue'
+    this.alertMsg = 'Please wait! Your clip is being uploaded.'
+    this.inSubmission = true
     const clipFileName = uuid()
     const clipPath = `clips/${clipFileName}.mp4`
     console.log(this.file)
     console.log(clipPath)
-    await this.storage.upload(clipPath, this.file)
+    const task = this.storage.upload(clipPath, this.file)
+    task.percentageChanges().subscribe(progress => {
+      this.percentage = progress as number /100
+    })
     console.log("Upload completed")
   }
 
