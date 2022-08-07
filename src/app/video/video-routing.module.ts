@@ -5,6 +5,7 @@ import { UploadComponent } from './upload/upload.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
 
 const redirectUserToHome = () => redirectUnauthorizedTo('/')
+//
 
 const routes: Routes = [
   {
