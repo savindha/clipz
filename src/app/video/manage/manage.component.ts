@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CilpService } from 'src/app/services/cilp.service';
 import IClip from 'src/app/models/clip.model';
+import { ModalService } from 'src/app/services/modal.service';
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
@@ -15,7 +16,8 @@ export class ManageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private clipService: CilpService
+    private clipService: CilpService,
+    private modal : ModalService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,12 @@ export class ManageComponent implements OnInit {
         sort: value
       }
     })
+  }
+
+  openModal(event: Event, clip: IClip) {
+    event.preventDefault()
+    this.modal.toggleModal('editClip')
+
   }
 
 }
