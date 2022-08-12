@@ -36,7 +36,7 @@ export class CilpService {
         const query = this.clipsCollection.ref.where(
           'uid', '==', user.uid
         ).orderBy(
-          'timestamp',
+          'timeStamp',
           sort === '1' ? 'desc' : 'asc'
         )
 
