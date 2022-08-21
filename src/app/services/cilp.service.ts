@@ -21,7 +21,6 @@ export class CilpService implements Resolve<IClip | null> {
     private router: Router
   ) {
     this.clipsCollection = db.collection('clips')
-    console.log("CLIP SERVICE CONSTRUCTORR");
   }
 
   createClip(data: IClip): Promise<DocumentReference<IClip>> {
@@ -85,8 +84,6 @@ export class CilpService implements Resolve<IClip | null> {
       }
 
       const snapshot = await query.get()
-      console.log("L = NOT 0")
-      console.log(snapshot)
       snapshot.forEach(doc => {
         this.pageClips.push({
           docID: doc.id,
