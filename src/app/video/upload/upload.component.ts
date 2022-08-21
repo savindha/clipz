@@ -64,7 +64,6 @@ export class UploadComponent implements OnDestroy {
     }
     this.nextStep = true
     this.title.setValue(this.file?.name.replace(/\.[^/.]+$/, '') ?? '')
-    console.log(this.file)
   }
 
   storeThumbnail($event: Event) {
@@ -79,7 +78,6 @@ export class UploadComponent implements OnDestroy {
     this.showAlert = true
     this.alertColor = 'green'
     this.alertMsg = 'Thumbnail uploaded!'
-    console.log(this.thumbnail)
   }
 
   uploadFile() {

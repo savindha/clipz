@@ -10,8 +10,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   @Input() modalID = ''
 
-  constructor(public modal: ModalService, public el: ElementRef) { //this is Dependency Injecting 
-    // console.log(this.modal.visible)
+  constructor(public modal: ModalService, public el: ElementRef) { 
   }
 
   ngOnInit(): void {
