@@ -10,15 +10,15 @@ const routes: Routes = [{
   component: HomeComponent
 },
 {
-  path: 'about',
-  component: AboutComponent
-},
-{
   path: 'clip/:id',
   component: ClipComponent,
   resolve: {
     clip: CilpService
   }
+},
+{
+  path: '',
+  loadChildren: async () => (await import('./video/video.module')).VideoModule
 },
 {
   path: '**',
